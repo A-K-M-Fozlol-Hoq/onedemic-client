@@ -1,0 +1,20 @@
+.header-slide img{
+    height: 600px;
+}
+.carousel-caption{
+    margin-bottom : 200px;
+    background-color: rgb(0,0,255,0.18);
+    border-radius:20px;
+}
+.slide-header{
+    margin-bottom :60px;
+    font-size: 3rem;
+    color:blue ;
+    /* color:blue ; */
+    /* color:#5b9bd5 ; */
+}
+.slide-text{
+    /* color: 	#333f50; */
+    color: 	white;
+    font-size:1.5rem;
+}

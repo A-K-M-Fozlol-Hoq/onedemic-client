@@ -1,0 +1,108 @@
+.dashboard-header{
+    height:60px;
+    width:100%;
+    border: 2px solid green;
+    color: white;
+    /* background-color: #333f50; */
+    background-color: rgb(0,0,255,0.4);
+    margin-bottom: 0;
+    /* padding-bottom: 0; */
+}
+.dashboard-header:hover{
+    background-color:#333f50;
+    cursor: pointer;
+}
+.dashboard-functionality{
+    height:700px;
+    background-color: rgb(0,0,0,0.7);
+    display:flex;
+}
+.sidebar{
+    background-color:#042331;
+    color:#fff;
+    /* width:350PX; */
+    height: 100%;
+    overflow: hidden;
+    width:23%;
+}
+.functionality{
+    width:77%;
+    border: 2px solid goldenrod;
+    border-radius:20px;
+    padding:50PX;
+}
+.sidebar ul li{
+    display:block;
+    height:100%;
+    width: 100%;
+    line-height:65px;
+    font-size:20px;
+    color:#fff;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(155,155,155,0.1);
+    transition:0.4s;
+}
+.sidebar ul li:hover{
+    padding-left: 50px;
+    cursor: pointer;
+    color: red;
+}
+.profile-pic-div img{
+    width:60%;
+    height:150px;
+    border-radius:50%;
+    border:3px solid white;;
+}
+.profile-pic-div img:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.profile-pic-div{
+    margin-top: 25px;
+    margin-left: 28%;
+}
+.user-name{
+    height:60px;
+    width:100%;
+    text-align: center;
+    margin-top:20px;
+    font-weight: 700;
+    font-size:1.5rem;
+    color: #fff;
+    background-color:green;
+    padding-top: 15px;
+}
+.user-name:hover{
+    color: #042331;
+    cursor: pointer;
+}
+/* Animation */
+.dashboard-header h1{
+    animation-name: dashboard-header;
+    animation-duration: 12s;
+    position: relative;
+    animation-iteration-count: 1000;
+}
+  @keyframes dashboard-header {
+    /* 0% {color: white; left:-20%; }
+    20% {color: white; left:10%; }
+    25% {color: white; left:15%; }
+    30% {color: white; left:20%; }
+    35% {color: white; left:25%; }
+    40% {color: white; left:30%; }
+    45% {color: white; left:35%; }
+    50% {color: white; left:40%; }
+    55% {color: white; left:45%; }
+    60% {color: white; left:50%; }
+    65% {color: white; left:55%; }
+    70% {color: white; left:60%; }
+    75% {color: white; left:65%; }
+    80% {color: white; left:70%; }
+    100% {color: white; left:90%; } */
+    0% {color: white; left:-20%; }
+    5% {color: white; left:0%; }
+    95% {color: white; left:90%; }
+    100% {color: white; left:100%; }
+  }

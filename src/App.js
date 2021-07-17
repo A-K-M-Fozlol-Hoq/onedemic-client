@@ -7,6 +7,10 @@ import NotFound from "components/NotFound/NotFound";
 import Login from "components/Login/Login/Login";
 import Chat from "components/Dashboard/Shared/Chat/Chat/Chat";
 import Join from "components/Dashboard/Shared/Chat/Join/Join";
+import PrivateRoute from "components/Login/PrivateRoute/PrivateRoute";
+import Dashboard from "components/Dashboard/Dashboard/Dashboard";
+import Navbar from "components/Shared/Navbar/Navbar";
+import Footer from "components/Shared/Footer/Footer";
 
 export const UserContext = createContext([]);
 const App = () => {
@@ -20,6 +24,7 @@ const App = () => {
                 loggedInUser.email?   <button onClick={signOut}>out</button> : 'Sign Up'
       } */}
     <Router>
+      <Navbar></Navbar>
       <Switch>
 
         <Route exact path="/">
@@ -34,6 +39,10 @@ const App = () => {
           <Login></Login>
         </Route>
         
+        <PrivateRoute path="/dashboard">
+          <Dashboard></Dashboard>
+        </PrivateRoute>
+
         <Route path="/join" component={Join} />
 
         <Route path="/chat">
@@ -45,6 +54,7 @@ const App = () => {
         </Route>
         
       </Switch>
+      <Footer></Footer>
     </Router>
     </UserContext.Provider>
   );

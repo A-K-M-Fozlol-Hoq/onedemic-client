@@ -1,0 +1,59 @@
+.better-exam{
+    display: flex;
+    height:500px;
+}
+.better-exam div{
+    width: 50%;
+}
+.better-exam img{
+    width: 100%;
+    height:400px;
+    margin-top:50px;
+}
+.better-exam-btn{
+    width: 45% !important;
+    border: 2px solid #fff !important;
+}
+.better-exam-card{
+    height:350px;
+    margin-top: 100px;
+    margin-left: 50px;
+    color: #fff;
+}
+.better-exam-card h1{
+    margin: 10px 0 30px;
+}
+.better-exam-btn{
+    margin-top:50px !important;
+    width: 45% !important;
+    border: 2px solid #fff !important;
+}
+.typed-text{
+    font-size:25px;
+    color:yellow;
+}
+/* animation */
+.better-exam-title{
+    animation-name: better-exam-title;
+    animation-duration: 2s;
+    animation-iteration-count: 1000;
+}
+  @keyframes better-exam-title {
+    0% {color: red; }
+    100% {color: greenyellow; }
+  }
+  /* 
+  .better-exam-title{
+    animation-name: better-exam-title;
+    animation-duration: 10s;
+    animation-iteration-count: 1000;
+}
+  @keyframes better-exam-title {
+    0% {color: violet; }
+    16% {color: blue; }
+    33% {color: skyblue; }
+    50% {color: green; }
+    67% {color: yellow; }
+    83% {color: orange; }
+    100% {color: red; }
+  } */

@@ -9,8 +9,8 @@ import { UserContext } from 'App';
 
 const Login = () => {
     const [ isNewUser, setIsNewUser ] = useState(false);
-    const [ isUserNameAvailable, setIsUserNameAvailable ] = useState(false);
-    let users = useState([]);
+    // const [ isUserNameAvailable, setIsUserNameAvailable ] = useState(false);
+    // let users = useState([]);
     const [ formInputFields, setFormInputFields ] = useState({
         firstName: '',
         lastName: '',
@@ -144,6 +144,10 @@ const Login = () => {
                 setError('Please enter first name and last name before enter user name')
             }
         }
+        else if (event.target.name === 'role'){
+            formInputFields.role= event.target.value;
+            console.log(formInputFields,'ok')
+        }
         else if (event.target.name === 'email') {
             // for sign up
             if (isNewUser) {
@@ -228,6 +232,7 @@ const Login = () => {
                     newUserInfo.userName = formInputFields.userName;
                     newUserInfo.email = formInputFields.email;
                     newUserInfo.password = formInputFields.password;
+                    newUserInfo.role = formInputFields.role;
                     setUser(newUserInfo);
                     setError('')
                 }
@@ -262,9 +267,9 @@ const Login = () => {
     const handleFormSubmit = (event)=>{
         event.preventDefault();
         console.log(user);
-        if (isNewUser && user.email && user.password) {
+        if (isNewUser && user.email && user.password && user.userName && user.role) {
             //have to save database
-            createUserWithEmailAndPassword(user.name, user.email, user.password)
+            createUserWithEmailAndPassword(user.name, user.email, user.password, user.userName, user.role)
                 .then(res => {
                     if(res.success === false){
                         alert('This email address is already used by another account')
@@ -294,48 +299,56 @@ const Login = () => {
 
     return (
         <div className="login-wraper">
-            <h1>This is login page</h1>
             
-            <p>{error}</p>
-            <p>{inputSuccess}</p>
-            <div className="login">
-                <div className="login-form">
-                    <form className='form' onSubmit={handleFormSubmit}>
-                        <input onChange={() => setIsNewUser(!isNewUser)} type="checkbox" name="isNewUser" id="isNewUser" />
-                        <label htmlFor="isNewUser">New User Sign Up <br /></label>
-                        {
-                            isNewUser && 
-                            <>
-                                <label className='text-left' htmlFor="first_name">First Name: </label>
-                                <input onChange={handleChange} type="text" id="first_name" name="first_name" placeholder="Enter Your First Name.."></input>
-                                <label className='text-left' htmlFor="last_name">Last Name: </label>
-                                <input onChange={handleChange} type="text" id="last_name" name="last_name" placeholder="Enter Your Last Name.."></input>
-                                <label className='text-left' htmlFor="user_name">User Name: </label>
-                                <input onChange={handleChange} onBlur={handleBlur} type="text" id="user_name" name="user_name" placeholder="Enter Your User Name.."></input>
-                                <label htmlFor="cars">Select Your Role:</label>
-                                <select onChange={handleChange} name="role" id="role">
-                                    <option value="teacher">Teacher</option>
-                                    <option value="student">Student</option>
-                                </select>
-                                <br />
-                            </>
-                        }
-                        <label className='text-left' htmlFor="email">Email: </label>
-                        <input onChange={handleChange} type="email" id="email" name="email" placeholder="Enter Your Email.."></input>
-                        <label className='text-left' htmlFor="password">Password: </label>
-                        <input onChange={handleChange} type="password" id="passworde" name="password" placeholder="Enter Your Password.."></input>
-                        {
-                            isNewUser && 
-                            <>
-                                <label className='text-left' htmlFor="confirm_password">Confirm Password: </label>
-                                <input onChange={handleChange} type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password.."></input>
-                            </>
-                        }
-                        <input type="submit" value={isNewUser ? 'Sign Up' : 'Sign In'}></input>
-                    </form>
-                    <h4 className='div'>-----------Or-----------</h4>
-                    <div className="social-media">
-                        <button onClick={googleSignIn} className='google btn'><FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> Sign In With Google (as student)</button>
+            <div className="container-85 row">
+                <div className="col-md-4 error-check">
+                    <p>Errors - Suggession - Success: </p>
+                    <p>{error}</p>
+                    <p>{inputSuccess}</p>
+                </div>
+                <div className="col-md-8">
+                    <div className="login">
+                        <div className="login-form">
+                            <form className='form' onSubmit={handleFormSubmit}>
+                                <input onChange={() => setIsNewUser(!isNewUser)} type="checkbox" name="isNewUser" id="isNewUser" />
+                                <label htmlFor="isNewUser" className="login-select">
+                                <label htmlFor="isNewUser"><span className="new-user"></span>New User Sign Up</label>
+                                </label> <br />
+                                {
+                                    isNewUser && 
+                                    <>
+                                        <label className='text-left' htmlFor="first_name">First Name: </label>
+                                        <input onChange={handleChange} type="text" id="first_name" name="first_name" placeholder="Enter Your First Name.."></input>
+                                        <label className='text-left' htmlFor="last_name">Last Name: </label>
+                                        <input onChange={handleChange} type="text" id="last_name" name="last_name" placeholder="Enter Your Last Name.."></input>
+                                        <label className='text-left' htmlFor="user_name">User Name: </label>
+                                        <input onChange={handleChange} onBlur={handleBlur} type="text" id="user_name" name="user_name" placeholder="Enter Your User Name.."></input>
+                                        <label htmlFor="cars">Select Your Role:</label>
+                                        <select onChange={handleChange} name="role" id="role">
+                                            <option value="student">Student</option>
+                                            <option value="teacher">Teacher</option>
+                                        </select>
+                                        <br />
+                                    </>
+                                }
+                                <label className='text-left' htmlFor="email">Email: </label>
+                                <input onChange={handleChange} type="email" id="email" name="email" placeholder="Enter Your Email.."></input>
+                                <label className='text-left' htmlFor="password">Password: </label>
+                                <input onChange={handleChange} type="password" id="passworde" name="password" placeholder="Enter Your Password.."></input>
+                                {
+                                    isNewUser && 
+                                    <>
+                                        <label className='text-left' htmlFor="confirm_password">Confirm Password: </label>
+                                        <input onChange={handleChange} type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password.."></input>
+                                    </>
+                                }
+                                <input type="submit" value={isNewUser ? 'Sign Up' : 'Sign In'}></input>
+                            </form>
+                            <h4 className='div'>-----------Or-----------</h4>
+                            <div className="social-media">
+                                <button onClick={googleSignIn} className='google btn'><FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> Sign In With Google (as student)</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

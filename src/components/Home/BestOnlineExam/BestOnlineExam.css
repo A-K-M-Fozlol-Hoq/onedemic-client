@@ -1,0 +1,68 @@
+.container-85{
+    width: 85%;
+    margin:auto;
+}
+.best-online-exam{
+    display: flex;
+    margin-top:50px;
+    height:400px
+}
+.best-online-exam div{
+    width:50%;
+}
+.best-online-exam img{
+    width: 100%;
+    height:350px;
+}
+.best-exam-card{
+    height:350px;
+    width:80% !important;
+    margin:auto !important;
+    padding: 20px;
+    color: white;
+    text-align:center;
+    background-color: rgb(0,0,255,0.5);
+    border: 1px solid goldenrod;
+}
+.best-exam-card h1{
+    margin: 10px 0 30px;
+}
+.best-exam-btn{
+    width: 45% !important;
+    border: 2px solid #fff !important;
+}
+
+.img-part img:hover{
+    transform: scale(1.05);
+    border-radius: 10%;
+    cursor: pointer;
+}
+.best-exam-card:hover{
+    border-radius: 15px;
+    background-color: rgb(0,0,255,0.6);
+    color: orange;
+}
+
+/* animation */
+.best-exam-card{
+    animation-name: best-exam-card;
+    animation-duration: 2s;
+    position: relative;
+    animation-delay: 2s;
+    animation-iteration-count: 2;
+}
+  @keyframes best-exam-card {
+    0% {color: red; left:-500px; top:0px;}
+    100% {color: greenyellow; left:0px; top:0px;}
+  }
+.img-part{
+    animation-name: img-part;
+    animation-duration: 2s;
+    position: relative;
+    animation-delay: 2s;
+    animation-iteration-count: 2;
+}
+  @keyframes img-part {
+    0% {left:500px; top:0px;}
+    100% {left:0px; top:0px;}
+  }

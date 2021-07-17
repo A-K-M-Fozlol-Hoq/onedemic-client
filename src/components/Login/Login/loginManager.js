@@ -22,6 +22,7 @@ export const handleGoogleSignIn = () => {
             }
             console.log(res)
             // have to save database
+            saveToDatabase(signedInUser.name, signedInUser.email, signedInUser.email, 'student');
             setUserToken( email );
             return signedInUser;
         })
@@ -57,7 +58,7 @@ const setUserToken= ( email )=>{
 // }
 
 
-export const createUserWithEmailAndPassword = (name, email, password) => {
+export const createUserWithEmailAndPassword = (name, email, password, userName, role) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((res) => {
             const {  displayName, email } = res.user;
@@ -73,6 +74,8 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
                 error:''
             }
             updateUserName(name);
+            saveToDatabase(name, userName, newUserInfo.email, role)
+            // console.log(name, userName, newUserInfo.email, role,'lm-77')
             return newUserInfo;
         })
         .catch((error) => {
@@ -120,3 +123,24 @@ const updateUserName = name => {
             console.log(error)
         });
 }
+
+
+
+// Store to database ======================================== mongoDB database
+
+// sign up with email and pass and other info, stores data at mongodb
+const saveToDatabase = (name,userName, email, role) => {
+    fetch('http://localhost:4000/addUser', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ name:name, userName:userName, email:email, role:role })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+}
+
