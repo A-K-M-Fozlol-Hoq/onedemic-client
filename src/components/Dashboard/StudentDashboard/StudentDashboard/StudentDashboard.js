@@ -9,7 +9,7 @@ import profilePicture from '../../../../images/longLogo.PNG';
 import ManageProfile from "components/Dashboard/Shared/ManageProfile/ManageProfile";
 
 const StudentDashboard = ( props ) => {
-  const { name } = props;
+  const { name, profile } = props;
   const [viewComponent, setviewComponent] = useState("manageProfile");
   return (
     <div>
@@ -20,7 +20,12 @@ const StudentDashboard = ( props ) => {
         <div className="dashboard-functionality">
           <div className="sidebar">
             <div className="profile-pic-div">
-              <img src={profilePicture} alt="profilePicture" />
+              {
+                profile?
+                <img src={profile}></img>
+                :
+                <img src={profilePicture} alt="profilePicture" />
+              }
             </div>
             <h5 className="user-name">name: {name}</h5>
             <ul>

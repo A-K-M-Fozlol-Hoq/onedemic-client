@@ -262,7 +262,27 @@ const Login = () => {
     }
     const handleBlur = (event)=>{
         console.log(event.target.name, event.target.value);
-        alert('we are checking whether your username is available or not');
+        fetch("http://localhost:4000/isUserNameExist", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ userName: event.target.value }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if(data){
+                    setError(`Username '${ event.target.value}' is exist, please Use another one`);
+                    setInputSuccess('');
+                    formInputFields.userName='';
+                    event.target.value='';
+                    // console.log( true);
+                }else{
+                    // console.log( false);
+                }
+            })
+            .catch((error) => {
+            console.error(error);
+            });
+        // alert('we are checking whether your username is available or not');
     }
     const handleFormSubmit = (event)=>{
         event.preventDefault();

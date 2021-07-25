@@ -18,9 +18,9 @@ const Dashboard = () => {
             }
             {
                 loggedInUser.role ==='teacher'?
-                <TeachersDashboard name={loggedInUser.name}></TeachersDashboard>
+                <TeachersDashboard name={loggedInUser.name} profile={loggedInUser.profile}></TeachersDashboard>
                 : 
-                <StudentDashboard name={loggedInUser.name}></StudentDashboard>
+                <StudentDashboard name={loggedInUser.name} profile={loggedInUser.profile}></StudentDashboard>
             }
         </div>
     );
