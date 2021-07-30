@@ -151,6 +151,7 @@ const saveToDatabase = (name, userName, email, role) => {
       userName: userName,
       email: email,
       role: role,
+      courses: [],
     }),
   })
     .then((response) => response.json())

@@ -6,7 +6,9 @@ import { UserContext } from "App";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  // @ts-ignore
+  const {loggedInUserData}= useContext(UserContext);
+  const [loggedInUser, setLoggedInUser] = loggedInUserData;
   const signOut = () => {
     setLoggedInUser({});
     sessionStorage.removeItem("token");

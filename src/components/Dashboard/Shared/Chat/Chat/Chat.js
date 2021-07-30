@@ -57,9 +57,8 @@ const Chat = () => {
 					<Link to="/">X</Link>
 				</div>
 				<div className="chat-box">
-					<
 // @ts-ignore
-					ScrollToBottom className="messages">
+					<ScrollToBottom className="messages">
 						{messages.map((message, index) => (
 							<div
 								key={index}

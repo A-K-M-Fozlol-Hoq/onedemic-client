@@ -22,7 +22,7 @@ const StudentDashboard = ( props ) => {
             <div className="profile-pic-div">
               {
                 profile?
-                <img src={profile}></img>
+                <img src={profile} alt=''></img>
                 :
                 <img src={profilePicture} alt="profilePicture" />
               }

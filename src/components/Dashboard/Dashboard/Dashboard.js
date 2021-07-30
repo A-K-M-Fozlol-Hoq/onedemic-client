@@ -6,7 +6,9 @@ import TeachersDashboard from '../TeachersDashboard/TeachersDashboard/TeachersDa
 import "./Dashboard.css";
 
 const Dashboard = () => {
-    const [loggedInUser, setLoggedInUser]= useContext(UserContext);
+    // @ts-ignore
+    const {loggedInUserData}= useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = loggedInUserData;
     return (
         <div>
             {/* <UpdateLoggedInUserState></UpdateLoggedInUserState> */}

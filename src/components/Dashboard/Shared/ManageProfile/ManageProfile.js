@@ -34,7 +34,9 @@ const ManageProfile = () => {
   const [profilePicture, setProfilePicture] = useState("");
   const [updating, setUpdating] = useState(false);
   const [close, setClose] = useState(true);
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  // @ts-ignore
+  const {loggedInUserData}= useContext(UserContext);
+  const [loggedInUser, setLoggedInUser] = loggedInUserData;
   const email = sessionStorage.getItem("email");
 
 
@@ -138,6 +140,12 @@ const ManageProfile = () => {
     setProfilePicture(newFile);
   };
 
+  const handleProfileUpdateFail = () =>{
+    setUpdating(false);
+    setClose(true);
+    closeProfileModal();
+    alert('Profile is not updated due to network problem or server side error')
+  }
   const handleProfileUpdate = (event) => {
     event.preventDefault();
     setUpdating(true);
@@ -151,6 +159,7 @@ const ManageProfile = () => {
         const profile = response.data.data.display_url;
         // loggedInUser.profile = profile;
         setLoggedInUser({ profile: profile });
+
         fetch("http://localhost:4000/updateProfile", {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -166,10 +175,13 @@ const ManageProfile = () => {
           })
           .catch((error) => {
             console.error(error);
+            handleProfileUpdateFail();
           });
+          
       })
       .catch(function (error) {
         console.log(error);
+        handleProfileUpdateFail();
       });
     setProfilePicture("");
   };

@@ -6,10 +6,11 @@ import "./TeachersDashboard.css";
 // @ts-ignore
 import profilePicture from '../../../../images/longLogo.PNG'
 import ManageProfile from "components/Dashboard/Shared/ManageProfile/ManageProfile";
+import CreateCourse from "../CreateCourse/CreateCourse";
 
 const TeachersDashboard = ( props ) => {
-  const {name, profile} = props;
-  const [ viewComponent, setviewComponent] = useState('manageProfile')
+  const { name, profile } = props;
+  const [ viewComponent, setviewComponent] = useState('createCourse')
   return (
     <div>
       <div className="teacher-dashboard">
@@ -21,7 +22,7 @@ const TeachersDashboard = ( props ) => {
           <div className="profile-pic-div">
             {
               profile?
-              <img src={profile}></img>
+              <img src={profile} alt=''></img>
               :
               <img src={profilePicture} alt="profilePicture" />
             }
@@ -44,7 +45,7 @@ const TeachersDashboard = ( props ) => {
           }
           {
             viewComponent === 'createCourse'?
-            <p>createCourse</p>:<></>
+            <CreateCourse></CreateCourse> :<></>
           }
           {
             viewComponent === 'createExam'?

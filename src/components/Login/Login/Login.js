@@ -34,7 +34,9 @@ const Login = () => {
         success: false
     })
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext); 
+    // @ts-ignore
+    const {loggedInUserData}= useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = loggedInUserData;
     // const history = useHistory();
     // const location = useLocation();
     // let { from } = location.state || { from: { pathname: "/" } };

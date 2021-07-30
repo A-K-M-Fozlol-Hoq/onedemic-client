@@ -2,7 +2,9 @@ import { UserContext } from 'App';
 import React, { useContext, useEffect } from 'react';
 
 const UpdateLoggedInUserState = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    // @ts-ignore
+    const {loggedInUserData}= useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = loggedInUserData;
     const email =sessionStorage.getItem('email');
     console.log(email,'UpdateLoggedInUserState')
     useEffect(()=>{

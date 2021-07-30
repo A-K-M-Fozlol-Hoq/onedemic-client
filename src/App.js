@@ -15,14 +15,13 @@ import Footer from "components/Shared/Footer/Footer";
 export const UserContext = createContext([]);
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({}); 
+  const [courses, setCourses] = useState({}); 
   // const signOut = ()=>{
   //   setLoggedInUser({})
   // }
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      {/* {
-                loggedInUser.email?   <button onClick={signOut}>out</button> : 'Sign Up'
-      } */}
+    // @ts-ignore
+    <UserContext.Provider value={{ loggedInUserData: [loggedInUser, setLoggedInUser], coursesData: [courses, setCourses] }}>
     <Router>
       <Navbar></Navbar>
       <Switch>
