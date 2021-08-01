@@ -15,13 +15,13 @@ import Footer from "components/Shared/Footer/Footer";
 export const UserContext = createContext([]);
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({}); 
-  const [courses, setCourses] = useState({}); 
+  const [courseData, setCourseData] = useState({}); 
   // const signOut = ()=>{
   //   setLoggedInUser({})
   // }
   return (
     // @ts-ignore
-    <UserContext.Provider value={{ loggedInUserData: [loggedInUser, setLoggedInUser], coursesData: [courses, setCourses] }}>
+    <UserContext.Provider value={{ loggedInUserData: [loggedInUser, setLoggedInUser], courseInfo: [courseData, setCourseData] }}>
     <Router>
       <Navbar></Navbar>
       <Switch>

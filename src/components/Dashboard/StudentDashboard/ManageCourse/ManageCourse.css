@@ -1,0 +1,39 @@
+.manage-course-wrapper .manage-course{
+    height:600px;
+}
+.manage-course .existing-course{
+    background-color:red;
+    color:yellow;
+}
+.manage-course .new-course{
+    background-color:yellow;
+    color:red;
+}
+.manage-course .existing-course:hover{
+    background-color:#333f50;
+    color:white;
+}
+.manage-course .new-course:hover{
+    background-color:#333f50;
+    color:white;
+}
+.manage-course .col-5-card{
+    padding:50px;
+    margin:4%;
+    border-radius:10px;
+    overflow:scroll;
+    height: 600px;
+}
+.manage-course .col-5-card-hover:hover{
+    transform: scale(1.05);
+    border-radius:15px;
+}
+.manage-course h2{
+    text-align:center;
+    /* color:white; */
+}
+.manage-course form{
+    background-color: rgb(0,0,255,0.4);
+    border:2px solid goldenrod;
+    border-radius:10px;
+}

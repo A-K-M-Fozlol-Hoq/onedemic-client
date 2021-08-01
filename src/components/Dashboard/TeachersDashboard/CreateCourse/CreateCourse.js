@@ -62,6 +62,7 @@ const CreateCourse = () => {
             .then((response) => response.json())
             .then((data) => {
               console.log(data);
+              alert('Course created successfully');
             })
             .catch((error) => {
               console.error(error);

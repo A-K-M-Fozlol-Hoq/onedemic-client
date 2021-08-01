@@ -7,10 +7,11 @@ import "./StudentDashboard.css";
 // @ts-ignore
 import profilePicture from '../../../../images/longLogo.PNG';
 import ManageProfile from "components/Dashboard/Shared/ManageProfile/ManageProfile";
+import ManageCourse from "../ManageCourse/ManageCourse";
 
 const StudentDashboard = ( props ) => {
   const { name, profile } = props;
-  const [viewComponent, setviewComponent] = useState("manageProfile");
+  const [viewComponent, setviewComponent] = useState("manageCourse");
   return (
     <div>
       <div className="student-dashboard">
@@ -45,7 +46,7 @@ const StudentDashboard = ( props ) => {
           </div>
           <div className="functionality">
             {viewComponent === "manageProfile" ? <ManageProfile></ManageProfile> : <></>}
-            {viewComponent === "manageCourse" ? <p>manageCourse</p> : <></>}
+            {viewComponent === "manageCourse" ? <ManageCourse></ManageCourse> : <></>}
             {viewComponent === "marksheet" ? <p>marksheet</p> : <></>}
             {viewComponent === "upcomingExam" ? <p>upcomingExam</p> : <></>}
             {viewComponent === "chat" ? <p>chat</p> : <></>}
