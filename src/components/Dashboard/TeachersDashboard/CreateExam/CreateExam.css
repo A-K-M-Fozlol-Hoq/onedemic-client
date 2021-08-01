@@ -1,15 +1,41 @@
-.create-exam-wrapper{
+.create-exam-wrapper {
     background-color: aliceblue;
-    height: 600px;
-    padding: 5px;
+    height: 700px;
+    padding: 15px;
+    border-radius: 15px;
     overflow: scroll;
-}
-.create-exam-wrapper .quizes{
+  }
+  .create-exam-wrapper .quizes {
     border: 1.3px dashed lightblue;
     padding: 15px;
     box-shadow: 2px 2px 6px lightgrey;
-}
-.create-exam-wrapper .quiz-method button{
+  }
+  .quiz-method button {
     padding: 20px;
     margin: 10px;
-}
+  }
+  .create-exam-wrapper .quiz-set{
+      border: 2px dotted grey;
+      border-radius: 10px;
+      width: 430px;
+      margin: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(68, 64, 64);
+  }

@@ -4,84 +4,167 @@ import './CreateExam.css';
 
 const CreateExam = () => {
     const [method, setMethod] = useState('Create Quiz');
-    const [questions, setQuestions] = useState([]);
+    const [disabled, setDisabled] = useState(false);
+    const [error, setError] = useState(false);
+    const [confirmButton, setConfirmButton] = useState(true);
 
-    // const [quiz, setQuiz] = useState({
-    //     question: '',
-    //     option1: '',
-    //     option2: '',
-    //     option3: '',
-    //     option4: ''
-    // }); //This is going to be used for setting each quiz
+    const [quizes, setQuizes] = useState([{
+        question: '',
+        option1: '',
+        option2: '',
+        option3: '',
+        option4: '',
+        correctAnswer: ''
+    }]); //This is going to be used for setting each quiz
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const onSubmit = (data) => {
-        setQuestions([...questions, {
-            question: data.question,
-            option1: data.option1,
-            option2: data.option2,
-            option3: data.option3,
-            option4: data.option4
-        }]);
-        console.log('quiz added', questions);
-}
-
-return (
-    <div className='create-exam-wrapper'>
-        <h3>Create Exam</h3>
-        <div className="quiz-method">
-            <button type="button" onClick={() => setMethod('Upload')} className="btn btn-outline-primary btn-lg">Upload File</button>
-            <button type="button" onClick={() => setMethod('Create Quiz')} className="btn btn-primary btn-lg">Create Quiz</button>
-        </div>
-        <div className="selected-method">
-            <h3>{method}</h3>
-            {
-                method === 'Upload' ?
-                    <div className="upload-file">
-                        <input type="file" name="" id="" />
-                    </div>
-                    : <></>
+    const handleChangeInput = (index, event) => {
+        const values = [...quizes];
+        values[index][event.target.name] = event.target.value;
+        setQuizes(values);
+        setConfirmButton(true);
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        for (let i = 0; i < quizes.length; i++) {
+            if (!quizes[i].question ||
+                !quizes[i].option1 ||
+                !quizes[i].option2 ||
+                !quizes[i].option3 ||
+                !quizes[i].option4 ||
+                !quizes[i].correctAnswer) {
+                setError(true);
+                alert('Please provide all questions with proper options.');
             }
-            {
-                method === 'Create Quiz' ?
-                    // <div>
-                    //     <label htmlFor="numberOfQuizes">Number of questions</label>
-                    //     <input type="number" name="numberOfQuestions" id="numberOfQuestions" min='1' max='80' />
-                    // </div>
-                    <>
-                        <div className="quizes">
-                            <h5>{`Number of quizes : ${questions.length}`}</h5>
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <label htmlFor="question">Question {questions.length}</label>
-                                <input className='quiz-field mb-2 form-control' name='question' placeholder='Enter Question'{...register("question", { required: true })} />
-                                {errors.question && <span className='text-danger'>Please enter the question</span>} <br />
+            else {
+                setConfirmButton(false);
+                console.log("Quiz :", quizes);
+            }
+        }
 
-                                <label htmlFor="option1">1. </label>
-                                <input className='pr-5 my-1 mx-2' name='option1' placeholder='enter option1'{...register("option1", { required: true })} />
-                                {errors.option1 && <span className='text-danger'>Please provide option 1</span>} <br />
+    }
+    const handleAddQuiz = () => {
+        setQuizes([...quizes, {
+            question: '',
+            option1: '',
+            option2: '',
+            option3: '',
+            option4: '',
+            correctAnswer: ''
+        }])
+    }
+    const handleRemoveQuiz = (index) => {
+        const values = [...quizes];
+        if (values.length > 1) {
+            values.splice(index, 1);
+            setQuizes(values);
+        }
+        else if (index === 0) {
+            setDisabled(true);
+        }
+    }
+    const handleConfirmQuiz = () => {
+        console.log("Quiz Confirmed");
+        //post using this method
+    }
 
-                                <label htmlFor="option2">2. </label>
-                                <input className='pr-5 my-1 mx-2' name='option2' placeholder='enter option2'{...register("option2", { required: true })} />
-                                {errors.option2 && <span className='text-danger'>Please provide option 2</span>} <br />
+    return (
+        <div className='create-exam-wrapper'>
+            <h3>Create Exam</h3>
+            <div className="quiz-method">
+                <button type="button"
+                    onClick={() => setMethod('Upload')}
+                    className="btn btn-outline-primary btn-lg">Upload File</button>
+                <button type="button"
+                    onClick={() => setMethod('Create Quiz')}
+                    className="btn btn-primary btn-lg">Create Quiz</button>
+            </div>
+            <div className="selected-method">
+                <h3>{method}</h3>
+                {
+                    method === 'Upload' ?
 
-                                <label htmlFor="option3">3. </label>
-                                <input className='pr-5 my-1 mx-2' name='option3' placeholder='enter option3'{...register("option3", { required: true })} />
-                                {errors.option3 && <span className='text-danger'>Please provide option 3</span>} <br />
-
-                                <label htmlFor="option4">4. </label>
-                                <input className='pr-5 my-1 mx-2' name='option3' placeholder='enter option4'{...register("option4", { required: true })} />
-                                {errors.option4 && <span className='text-danger'>Please provide option 4</span>} <br />
-
-                                <input type="submit" />
-                            </form>
+                        <div className="upload-file">
+                            <label htmlFor="upload" className="form-label">Upload File (PDF)</label>
+                            <input className="form-control form-control-lg" type="file" name="" id="upload" accept="application/pdf" />
                         </div>
-                    </>
-                    : <></>
-            }
+                        : <></>
+                }
+                {
+                    method === 'Create Quiz' ?
+                        <form>
+                            {
+                                quizes.map((quiz, index) => (
+                                    <div key={index} className='quiz-set'>
+                                        <span className="badge bg-secondary m-3">#{index+1}</span>
+                                        <textarea
+                                            name='question'
+                                            value={quiz.question}
+                                            onChange={event => handleChangeInput(index, event)}
+                                            className="form-control m-1"
+                                            style={{ 'height': '100px', 'width': '400px' }}
+                                            required
+                                            placeholder="Enter question here" /><br />
+                                        <input type="text"
+                                            name='option1'
+                                            value={quiz.option1}
+                                            onChange={event => handleChangeInput(index, event)}
+                                            className="form-control m-1"
+                                            style={{ 'width': '400px' }}
+                                            required
+                                            placeholder='Option1' /><br />
+                                        <input type="text"
+                                            name='option2'
+                                            value={quiz.option2}
+                                            onChange={event => handleChangeInput(index, event)}
+                                            className="form-control m-1"
+                                            style={{ 'width': '400px' }}
+                                            required
+                                            placeholder='Option2' /><br />
+                                        <input type="text"
+                                            name='option3'
+                                            value={quiz.option3}
+                                            onChange={event => handleChangeInput(index, event)}
+                                            className="form-control m-1"
+                                            style={{ 'width': '400px' }}
+                                            required
+                                            placeholder='Option3' /><br />
+                                        <input type="text"
+                                            name='option4'
+                                            value={quiz.option4}
+                                            onChange={event => handleChangeInput(index, event)}
+                                            className="form-control m-1"
+                                            style={{ 'width': '400px' }}
+                                            required
+                                            placeholder='Option4' /><br />
+                                        <input type="text"
+                                            name='correctAnswer'
+                                            value={quiz.correctAnswer}
+                                            onChange={event => handleChangeInput(index, event)}
+                                            className="form-control m-1"
+                                            style={{ 'width': '400px' }}
+                                            required
+                                            placeholder='Correct answer' /><br />
+                                        <button type="button" disabled={disabled} onClick={handleRemoveQuiz} className="btn btn-danger btn-lg mx-2 mb-3">-</button>
+                                        <button type="button" onClick={handleAddQuiz} className="btn btn-warning btn-lg mx-2 mb-3">+</button>
+                                    </div>
+                                ))
+                            }
+                            <button type="button"
+                                className="btn btn-outline-primary mt-3"
+                                style={{ 'width': '100%' }}
+                                onClick={handleSubmit}>Save Changes</button><br />
+                            <button type="button"
+                                onClick={handleConfirmQuiz}
+                                disabled={confirmButton}
+                                style={{ 'width': '100%' }}
+                                className="btn btn-outline-success btn-lg mt-2">Confirm Quiz</button>
+                        </form>
+                        : <>
+                        </>
+                }
+            </div>
         </div>
-    </div>
-);
+    );
 };
 
 export default CreateExam;
