@@ -9,6 +9,7 @@ import ManageProfile from "components/Dashboard/Shared/ManageProfile/ManageProfi
 import CreateCourse from "../CreateCourse/CreateCourse";
 import CreateExam from "../CreateExam/CreateExam";
 import ManageStudents from "../ManageStudents/ManageStudents";
+import Join from "components/Dashboard/Shared/Chat/Join/Join";
 
 const TeachersDashboard = ( props ) => {
   const { name, profile } = props;
@@ -63,7 +64,7 @@ const TeachersDashboard = ( props ) => {
           }
           {
             viewComponent === 'chat'?
-            <p>chat</p>:<></>
+            <Join></Join>:<></>
           }
         </div>
         </div>

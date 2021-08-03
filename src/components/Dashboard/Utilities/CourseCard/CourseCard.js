@@ -10,11 +10,15 @@ const CourseCard = ( props ) => {
                 <img className="card-img-top" src={`data:image/png;base64,${image.img}`} alt={courseCode}/>
                 <div className="card-body">
                     <h5 className="card-title text-primary m-2 p-2 text-center">{courseName}</h5>
-                    {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
-                    {/* <Link className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/">Go somewhere</Link> */}
                     {
                         props.manageStudents?
                         <Link onClick={()=>props.manageStudents(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Manage Students</Link>
+                        :
+                        <></>
+                    }
+                    {
+                        props.enterChat?
+                        <Link onClick={()=>props.enterChat(courseName)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Enter Chat</Link>
                         :
                         <></>
                     }

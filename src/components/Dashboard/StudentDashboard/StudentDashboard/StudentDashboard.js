@@ -8,6 +8,7 @@ import "./StudentDashboard.css";
 import profilePicture from '../../../../images/longLogo.PNG';
 import ManageProfile from "components/Dashboard/Shared/ManageProfile/ManageProfile";
 import ManageCourse from "../ManageCourse/ManageCourse";
+import Join from "components/Dashboard/Shared/Chat/Join/Join";
 
 const StudentDashboard = ( props ) => {
   const { name, profile } = props;
@@ -49,7 +50,7 @@ const StudentDashboard = ( props ) => {
             {viewComponent === "manageCourse" ? <ManageCourse></ManageCourse> : <></>}
             {viewComponent === "marksheet" ? <p>marksheet</p> : <></>}
             {viewComponent === "upcomingExam" ? <p>upcomingExam</p> : <></>}
-            {viewComponent === "chat" ? <p>chat</p> : <></>}
+            {viewComponent === "chat" ? <Join></Join> : <></>}
           </div>
         </div>
       </div>

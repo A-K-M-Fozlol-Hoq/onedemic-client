@@ -6,9 +6,9 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import "./Chat.css";
 
 let socket;
-const Chat = () => {
+const Chat = ( props ) => {
+	const { name, room } = props;
 	const { search } = useLocation();
-	const { name, room } = queryString.parse(search);
 	const [messages, setMessages] = useState([]);
 	const [users, setUsers] = useState([]);
 
@@ -57,8 +57,9 @@ const Chat = () => {
 					<Link to="/">X</Link>
 				</div>
 				<div className="chat-box">
+					<
 // @ts-ignore
-					<ScrollToBottom className="messages">
+					ScrollToBottom className="messages">
 						{messages.map((message, index) => (
 							<div
 								key={index}
