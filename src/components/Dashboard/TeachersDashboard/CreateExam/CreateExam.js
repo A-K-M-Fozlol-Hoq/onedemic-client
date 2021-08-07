@@ -120,7 +120,7 @@ const CreateExam = () => {
           <Row md={3} xs={2} xl={4}>
             {loggedInUser.courses.map((eachCourse) => (
               <Card style={{ width: "18rem", margin: "10px" }}>
-                <Card.Img variant="top" src={eachCourse.image.img} />
+                <Card.Img variant="top" src={`data:image/png;base64,${eachCourse.image.img}`}/>
                 <Card.Body>
                   <Card.Title>{eachCourse.courseName}</Card.Title>
                   <Card.Text>{eachCourse.courseCode}</Card.Text>
