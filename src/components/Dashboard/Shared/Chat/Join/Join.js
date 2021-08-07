@@ -8,8 +8,8 @@ const Join = () => {
 	// @ts-ignore
 	const { loggedInUserData,courseInfo } = useContext(UserContext); 
 	const [loggedInUser, setLoggedInUser] = loggedInUserData;
-	const [name, setName] = useState("");
-	const [room, setRoom] = useState("");
+	// const [name, setName] = useState("");
+	// const [room, setRoom] = useState("");
 	const [courseName, setCourseName] = useState("");
 	const [showCards, setShowCards] = useState(true);
 	const handleBack =()=>{

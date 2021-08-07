@@ -42,11 +42,11 @@ const App = () => {
           <Dashboard></Dashboard>
         </PrivateRoute>
 
-        <Route path="/join" component={Join} />
+        {/* <Route path="/join" component={Join} />
 
         <Route path="/chat">
           <Chat></Chat> 
-        </Route>
+        </Route> */}
 
         <Route path="*">
           <NotFound></NotFound>
