@@ -16,6 +16,10 @@ const ManageStudents = () => {
     setShowCards(false);
     setCourseCode(courseCode)
   };
+  const handleBack =()=>{
+    setShowCards(true);
+    setCourseCode('demoCourse')
+  }
   useEffect(()=>{
     fetch('http://localhost:4000/getFullCourseByCourseCode', {
         method: 'POST',
@@ -31,10 +35,6 @@ const ManageStudents = () => {
         })
 },[courseCode])
 
-const handleBack =()=>{
-  setShowCards(true);
-  setCourseCode('demoCourse')
-}
 
 const deleteStudent =(courseCode,email)=>{
   console.log(courseCode,email)

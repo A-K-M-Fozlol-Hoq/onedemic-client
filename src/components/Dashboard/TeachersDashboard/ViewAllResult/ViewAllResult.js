@@ -2,20 +2,20 @@ import { UserContext } from 'App';
 import CourseCard from 'components/Dashboard/Utilities/CourseCard/CourseCard';
 import React, { useContext, useState } from 'react';
 
-const UpcomingExam = () => {
+const ViewAllResult = () => {
     // @ts-ignore
     const { loggedInUserData } = useContext(UserContext);
     const [loggedInUser, setLoggedInUser] = loggedInUserData;
     const [showCards, setShowCards] = useState(true);
     const [courseCode, setCourseCode] = useState('demoCourse');
-    const startExam = ( courseCode ) => {
-      setShowCards(false);
-      setCourseCode(courseCode)
-      console.log(courseCode);
+    const viewAllResults = ( courseCode ) => {
+        setShowCards(false);
+        setCourseCode(courseCode)
+        console.log(courseCode);
     };
     const handleBack =()=>{
-      setShowCards(true);
-      setCourseCode('demoCourse')
+        setShowCards(true);
+        setCourseCode('demoCourse')
     }
     return (
         <div>
@@ -25,7 +25,7 @@ const UpcomingExam = () => {
                     {
                     // @ts-ignore
                     loggedInUser.courses?.map((course) => (
-                    <CourseCard startExam={startExam} className='col-md-4' course={course} key={course.courseCode}></CourseCard>
+                    <CourseCard viewAllResults={viewAllResults} className='col-md-4' course={course} key={course.courseCode}></CourseCard>
                     ))
                     }
                 </div>
@@ -40,4 +40,4 @@ const UpcomingExam = () => {
     );
 };
 
-export default UpcomingExam;
+export default ViewAllResult;

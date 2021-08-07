@@ -22,6 +22,24 @@ const CourseCard = ( props ) => {
                         :
                         <></>
                     }
+                    {
+                        props.viewAllResults?
+                        <Link onClick={()=>props.viewAllResults(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">View All Results</Link>
+                        :
+                        <></>
+                    }
+                    {
+                        props.markSheet?
+                        <Link onClick={()=>props.markSheet(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">View Marks</Link>
+                        :
+                        <></>
+                    }
+                    {
+                        props.startExam?
+                        <Link onClick={()=>props.startExam(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Start Exam</Link>
+                        :
+                        <></>
+                    }
                 </div>
             </div>
             

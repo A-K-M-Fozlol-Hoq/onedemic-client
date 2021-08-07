@@ -10,6 +10,7 @@ import CreateCourse from "../CreateCourse/CreateCourse";
 import CreateExam from "../CreateExam/CreateExam";
 import ManageStudents from "../ManageStudents/ManageStudents";
 import Join from "components/Dashboard/Shared/Chat/Join/Join";
+import ViewAllResult from "../ViewAllResult/ViewAllResult";
 
 const TeachersDashboard = ( props ) => {
   const { name, profile } = props;
@@ -56,7 +57,7 @@ const TeachersDashboard = ( props ) => {
           }
           {
             viewComponent === 'viewAllResults'?
-            <p>viewAllResults</p>:<></>
+            <ViewAllResult></ViewAllResult> :<></>
           }
           {
             viewComponent === 'manageStudents'?

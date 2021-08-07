@@ -1,7 +1,8 @@
 import { UserContext } from "App";
 import React, { useContext, useState } from "react";
 import { Container, Row, Card, Button } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import "./CreateExam.css";
 
 const CreateExam = () => {
@@ -10,26 +11,33 @@ const CreateExam = () => {
   const [loggedInUser, setLoggedInUser] = loggedInUserData;
   const [courseData, setCourseData] = courseInfo;
   //these are the teacher's and courses information taken from the contextAPI
+
   const [courseCode, setCourseCode] = useState("");
+
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const [showExamCreator, setShowExamCreator] = useState(false);
 
   const [showCourses, setShowCourses] = useState(true);
   //this will allow displaying all the courses by default
 
-  const [method, setMethod] = useState("Create Quiz");
+  const [method, setMethod] = useState("Select Method");
   const [disabled, setDisabled] = useState(false);
   const [confirmButton, setConfirmButton] = useState(true);
 
-//   console.log(loggedInUser.courses);
+  //   console.log(loggedInUser.courses);
   // console.log(courseData);
 
   const [quizes, setQuizes] = useState([
     {
+      date: selectedDate,
       question: "",
       option1: "",
       option2: "",
       option3: "",
       option4: "",
       correctAnswer: "",
+      marks: "",
     },
   ]); //This is going to be used for setting each quiz
 
@@ -62,12 +70,14 @@ const CreateExam = () => {
     setQuizes([
       ...quizes,
       {
+        date: selectedDate,
         question: "",
         option1: "",
         option2: "",
         option3: "",
         option4: "",
         correctAnswer: "",
+        marks: "",
       },
     ]);
   };
@@ -82,16 +92,24 @@ const CreateExam = () => {
   };
   const handleConfirmQuiz = () => {
     console.log("Quiz Confirmed");
+    console.log(quizes);
     //post using this method
   };
-
-  const handleCreateExamButton = (courseCode) => {
+  const handleSelectDateButton = () => {
     setShowCourses(false);
+  };
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setShowExamCreator(true);
+    // console.log(quizes[0].date);
+  };
+  const handleCreateExamButton = (courseCode) => {
     setCourseCode(courseCode);
-    console.log(courseCode);
+    // console.log(courseCode);
   };
   const handleBackButton = () => {
     setShowCourses(true);
+    setShowExamCreator(false);
     setCourseCode("");
   };
 
@@ -106,13 +124,8 @@ const CreateExam = () => {
                 <Card.Body>
                   <Card.Title>{eachCourse.courseName}</Card.Title>
                   <Card.Text>{eachCourse.courseCode}</Card.Text>
-                  <Button
-                    variant="primary"
-                    onClick={() =>
-                      handleCreateExamButton(eachCourse.courseCode)
-                    }
-                  >
-                    Create Exam
+                  <Button variant="primary" onClick={handleSelectDateButton}>
+                    Select Exam Date
                   </Button>
                 </Card.Body>
               </Card>
@@ -120,10 +133,28 @@ const CreateExam = () => {
           </Row>
         </Container>
       ) : (
-        <>
-          <Button variant="secondary" onClick={handleBackButton}>
-            Back
+        <Container>
+          <Button
+            className="text-danger bg-warning m-2 px-3 rounded"
+            onClick={handleBackButton}
+          >
+            <b>&larr;</b> BACK
           </Button>
+          <Calendar onChange={handleDateChange} />
+        </Container>
+      )}
+      {
+          showExamCreator ? 
+          (
+              <section>
+          <Button
+            className="text-danger bg-warning m-2 px-3 rounded"
+            onClick={handleBackButton}
+          >
+            <b>&larr;</b> BACK
+          </Button>
+          <br />
+          <br />
           <h6>{`Exam for ${courseCode}`}</h6>
           <div className="quiz-method">
             <button
@@ -164,14 +195,23 @@ const CreateExam = () => {
             {method === "Create Quiz" ? (
               <Container>
                 <form>
-                  <p>{quizes.length} questions</p>
+                  {quizes.length > 1 ? (
+                    <span className="badge bg-light text-dark">
+                      {quizes.length} questions
+                    </span>
+                  ) : (
+                    <span className="badge bg-light text-dark">
+                      {quizes.length} question
+                    </span>
+                  )}
                   <Row md={3} xl={4} sm={1}>
                     {quizes.map((quiz, index) => (
                       <div key={index} className="quiz-set">
                         <span className="badge bg-secondary m-3">
-                          #{index + 1}
+                          marks
+                          <input name="marks" id="marks" value={quiz.marks}
+                          onChange={(event) => handleChangeInput(index, event)} type="number" max="10" min="1" />
                         </span>
-                        input
                         <textarea
                           name="question"
                           value={quiz.question}
@@ -179,7 +219,7 @@ const CreateExam = () => {
                           className="form-control m-1"
                           style={{ height: "100px", width: "350px" }}
                           required
-                          placeholder="Enter question here"
+                          placeholder={`Enter question ${index + 1}`}
                         />
                         <br />
                         <input
@@ -278,9 +318,9 @@ const CreateExam = () => {
             ) : (
               <></>
             )}
-          </div>{" "}
-        </>
-      )}
+          </div>
+        </section>
+          ) : <></>} 
     </div>
   );
 };

@@ -44,11 +44,11 @@ const Chat = ( props ) => {
 	};
 
 	return (
-		<div className="chat">
+		<div style={{marginTop:'-40px'}} className="chat">
 			<div className="user-list">
-				<div>User Name</div>
+				<div className='border border-primary bg-danger pb-2 mb-2'>User Name</div>
 				{users.map((user) => (
-					<div key={user.id}>{user.name}</div>
+					<div key={user.id} className='border border-primary rounded bg-success text-white m-1'>{user.name}</div>
 				))}
 			</div>
 			<div className="chat-section">
@@ -63,7 +63,7 @@ const Chat = ( props ) => {
 						{messages.map((message, index) => (
 							<div
 								key={index}
-								className={`message ${name === message.user ? "self" : ""}`}
+								className={`message ${name.toLowerCase() === message.user ? "self" : ""}`}
 							>
 								<span className="user">{message.user}</span>
 								<span className="message-text">{message.text}</span>

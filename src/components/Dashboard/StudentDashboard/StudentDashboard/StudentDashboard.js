@@ -9,6 +9,8 @@ import profilePicture from '../../../../images/longLogo.PNG';
 import ManageProfile from "components/Dashboard/Shared/ManageProfile/ManageProfile";
 import ManageCourse from "../ManageCourse/ManageCourse";
 import Join from "components/Dashboard/Shared/Chat/Join/Join";
+import MarkSheet from "components/Dashboard/Shared/MarkSheet/MarkSheet";
+import UpcomingExam from "../UpcomingExam/UpcomingExam/UpcomingExam";
 
 const StudentDashboard = ( props ) => {
   const { name, profile } = props;
@@ -48,8 +50,8 @@ const StudentDashboard = ( props ) => {
           <div className="functionality">
             {viewComponent === "manageProfile" ? <ManageProfile></ManageProfile> : <></>}
             {viewComponent === "manageCourse" ? <ManageCourse></ManageCourse> : <></>}
-            {viewComponent === "marksheet" ? <p>marksheet</p> : <></>}
-            {viewComponent === "upcomingExam" ? <p>upcomingExam</p> : <></>}
+            {viewComponent === "marksheet" ? <MarkSheet></MarkSheet> : <></>}
+            {viewComponent === "upcomingExam" ? <UpcomingExam></UpcomingExam> : <></>}
             {viewComponent === "chat" ? <Join></Join> : <></>}
           </div>
         </div>
