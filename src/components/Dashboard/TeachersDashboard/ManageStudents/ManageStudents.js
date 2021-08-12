@@ -64,7 +64,8 @@ const deleteStudent =(courseCode,email)=>{
         {
           // @ts-ignore
           loggedInUser.courses?.map((course) => (
-          <CourseCard manageStudents={manageStudents} className='col-md-4' course={course} key={course.courseCode}></CourseCard>
+          <CourseCard manageStudents={manageStudents} className='col-md-4' showWaitingButton={false} 
+          course={course} key={course.courseCode}></CourseCard>
           ))
         }
       </div>

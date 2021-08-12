@@ -99,7 +99,8 @@ const CreateCourse = () => {
           {/* <div className="m-auto "> */}
           {
             // @ts-ignore
-            loggedInUser.courses.map(course =><CourseCard course={course} key={course.courseCode}></CourseCard>)
+            loggedInUser.courses.map(course =><CourseCard course={course} showWaitingButton={false} 
+               key={course.courseCode}></CourseCard>)
           }
           {/* </div> */}
         </div>

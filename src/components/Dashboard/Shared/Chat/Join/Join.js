@@ -38,7 +38,8 @@ const Join = () => {
         {
           // @ts-ignore
           loggedInUser.courses?.map((course) => (
-          <CourseCard enterChat={enterChat} className='col-md-4' course={course} key={course.courseCode}></CourseCard>
+          <CourseCard enterChat={enterChat} className='col-md-4' showWaitingButton={false} 
+		   course={course} key={course.courseCode}></CourseCard>
           ))
         }
       </div>

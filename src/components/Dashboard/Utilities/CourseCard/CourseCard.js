@@ -12,31 +12,52 @@ const CourseCard = ( props ) => {
                     <h5 className="card-title text-primary m-2 p-2 text-center">{courseName}</h5>
                     {
                         props.manageStudents?
-                        <Link onClick={()=>props.manageStudents(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Manage Students</Link>
+                        <Link onClick={()=>props.manageStudents(courseCode)} className='btn btn-primary mx-auto' 
+                        style={{margin:"auto"}} to="/dashboard">Manage Students</Link>
                         :
                         <></>
                     }
                     {
                         props.enterChat?
-                        <Link onClick={()=>props.enterChat(courseName)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Enter Chat</Link>
+                        <Link onClick={()=>props.enterChat(courseName)} className='btn btn-primary mx-auto' 
+                        style={{margin:"auto"}} to="/dashboard">Enter Chat</Link>
                         :
                         <></>
                     }
                     {
                         props.viewAllResults?
-                        <Link onClick={()=>props.viewAllResults(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">View All Results</Link>
+                        <Link onClick={()=>props.viewAllResults(courseCode)} className='btn btn-primary mx-auto' 
+                        style={{margin:"auto"}} to="/dashboard">View All Results</Link>
                         :
                         <></>
                     }
                     {
                         props.markSheet?
-                        <Link onClick={()=>props.markSheet(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">View Marks</Link>
+                        <Link onClick={()=>props.markSheet(courseCode)} className='btn btn-primary mx-auto' 
+                        style={{margin:"auto"}} to="/dashboard">View Marks</Link>
                         :
                         <></>
                     }
                     {
-                        props.startExam?
-                        <Link onClick={()=>props.startExam(courseCode)} className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Start Exam</Link>
+                        (!props.showWaitingButton)?
+                        <div>
+                            {
+                                props.startExam?
+                                <Link onClick={()=>props.startExam(props.index)} className='btn btn-primary mx-auto' 
+                                style={{margin:"auto"}} to="/dashboard">Start Exam</Link>
+                                :
+                                <></>
+                            }
+                        </div>
+                        :
+                        <div>
+                            <button className='btn btn-primary mx-auto' disabled> Waiting... </button>
+                        </div>
+                    }
+                    {
+                        props.handleSelectExamDateButton?
+                        <Link onClick={()=>props.handleSelectExamDateButton(courseCode,courseName,image)} 
+                        className='btn btn-primary mx-auto' style={{margin:"auto"}} to="/dashboard">Create Exam</Link>
                         :
                         <></>
                     }

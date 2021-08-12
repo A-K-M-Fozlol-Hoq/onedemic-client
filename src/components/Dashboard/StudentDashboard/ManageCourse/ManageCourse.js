@@ -52,7 +52,7 @@ const ManageCourse = () => {
           {
             // @ts-ignore
             loggedInUser.courses?.map((course) => (
-              <CourseCard course={course} key={course.courseCode}></CourseCard>
+              <CourseCard course={course} key={course.courseCode} showWaitingButton={false} ></CourseCard>
             ))
           }
           <br />
