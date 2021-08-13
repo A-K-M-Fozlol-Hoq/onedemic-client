@@ -19,6 +19,7 @@ const ShowMcqQuestionCard = (props) => {
             <div className="question-part m-5 p-5 bg-primary text-white rounded">
             <p>{question.question}</p>
                 <select  onChange={(e)=>handleChange(e,question.correctAnswer)}className="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option ></option>
                     <option value={question.option1} >{question.option1}</option>
                     <option value={question.option2}>{question.option2}</option>
                     <option value={question.option3}>{question.option3}</option>

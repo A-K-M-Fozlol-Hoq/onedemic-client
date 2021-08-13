@@ -22,7 +22,16 @@ const Dashboard = () => {
                 loggedInUser.role ==='teacher'?
                 <TeachersDashboard name={loggedInUser.name} profile={loggedInUser.profile}></TeachersDashboard>
                 : 
+                loggedInUser.role ==='student'?
                 <StudentDashboard name={loggedInUser.name} profile={loggedInUser.profile}></StudentDashboard>
+                : 
+                <div className="bg-blue m-5 p-5 rounded text-center m-auto text-danger">
+                    <p >Loading...</p>
+                    <div className="spinner-border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                    <br />
+                  </div>
             }
         </div>
     );

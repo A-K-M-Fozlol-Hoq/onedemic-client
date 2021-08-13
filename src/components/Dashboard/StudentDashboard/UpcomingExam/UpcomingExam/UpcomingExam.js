@@ -19,7 +19,7 @@ const UpcomingExam = () => {
     useEffect(()=>{
         let courses =[]
         console.log(loggedInUser)
-        loggedInUser.courses.map((course)=>{
+        loggedInUser?.courses?.map((course)=>{
             // console.log(course)
             courses.push(course)
         })
@@ -40,6 +40,7 @@ const UpcomingExam = () => {
             .then((data) => {
               setLoadingExam(false);
               exams=[]
+              // setExams([]);
               // console.log(data);
               if(data.length > 0){
                 data.map((course) => {
