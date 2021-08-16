@@ -13,7 +13,7 @@ const Chat = ( props ) => {
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
-		socket = io("http://localhost:4000", { transports: ['websocket', 'polling', 'flashsocket'] });
+		socket = io("https://protected-reef-78007.herokuapp.com/", { transports: ['websocket', 'polling', 'flashsocket'] });
 
 		socket.emit("join", { name, room }, (error) => {
 			if (error) {
@@ -34,7 +34,7 @@ const Chat = ( props ) => {
             socket.disconnect()
 			socket.close();
 		};
-	}, [name, room]);
+	}, []);
 
 	const sendMessage = (e) => {
 		if (e.key === "Enter" && e.target.value) {
