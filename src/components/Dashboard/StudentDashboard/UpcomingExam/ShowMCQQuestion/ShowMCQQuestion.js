@@ -38,7 +38,7 @@ const ShowMCQQuestion = ( props) => {
             // @ts-ignore
             formData2.append("marks", marks);
             formData2.append("examName", examName);
-            fetch("http://localhost:4000/storeMCQResult", {
+            fetch("https://protected-reef-78007.herokuapp.com/storeMCQResult", {
               method: "POST",
               body: formData2,
             })

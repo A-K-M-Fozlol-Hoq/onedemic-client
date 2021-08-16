@@ -48,7 +48,7 @@ export default function ManageStudentsTable( props ) {
 
   const handleUnblock = (email) => {
     console.log(email,course.courseCode)
-    fetch("http://localhost:4000/removeFromBlockList", {
+    fetch("https://protected-reef-78007.herokuapp.com/removeFromBlockList", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ email: email,courseCode:course.courseCode }),

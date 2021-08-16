@@ -22,15 +22,7 @@ const Join = () => {
 	}
 
 	return (
-		// <div className="join">
-		// 	<div className="join-form">
-		// 		<input placeholder="name" onChange={(e) => setName(e.target.value)} />
-		// 		<input placeholder="room" onChange={(e) => setRoom(e.target.value)} />
-		// 		<Chat to={`/chat?name=${name}&room=${room}`}>Join</Chat>
-		// 	</div>
-		// </div>
 		
-
 
 		<div className="manage-students-wrapper">
       {showCards ? (

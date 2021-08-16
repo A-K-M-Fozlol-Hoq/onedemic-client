@@ -13,7 +13,7 @@ let [ pdf, setPDF] = useState({});
 useEffect(()=>{
   const formData = new FormData();
   formData.append("pdfCode", pdfCode);
-          fetch("http://localhost:4000/getPDF", {
+          fetch("https://protected-reef-78007.herokuapp.com/getPDF", {
             method: "POST",
             body: formData,
           })

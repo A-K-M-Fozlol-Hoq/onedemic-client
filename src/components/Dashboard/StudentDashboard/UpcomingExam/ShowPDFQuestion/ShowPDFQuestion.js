@@ -57,7 +57,7 @@ const handleAnswerSubmit = (e) => {
     formData.append("file", answerScript);
     // @ts-ignore
     formData.append("pdfCode", pdfCode);
-    fetch("http://localhost:4000/storePDF", {
+    fetch("https://protected-reef-78007.herokuapp.com/storePDF", {
       method: "POST",
       body: formData,
     })
@@ -75,7 +75,7 @@ const handleAnswerSubmit = (e) => {
       formData2.append("courseCode", quiz.course.courseCode);
       formData2.append("marks", 'pending');
       formData2.append("examName", examName);
-      fetch("http://localhost:4000/storeWrittenesult", {
+      fetch("https://protected-reef-78007.herokuapp.com/storeWrittenesult", {
         method: "POST",
         body: formData2,
       })

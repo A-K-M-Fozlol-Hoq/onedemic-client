@@ -21,7 +21,7 @@ const ManageStudents = () => {
     setCourseCode('demoCourse')
   }
   useEffect(()=>{
-    fetch('http://localhost:4000/getFullCourseByCourseCode', {
+    fetch('https://protected-reef-78007.herokuapp.com/getFullCourseByCourseCode', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({courseCode:courseCode })
@@ -39,7 +39,7 @@ const ManageStudents = () => {
 const deleteStudent =(courseCode,email)=>{
   console.log(courseCode,email)
   const haveToBlock = window.confirm(`Do you want to block ${email} from the course permanently? If you block him, he will not able to join this course later.`);
-  fetch("http://localhost:4000/removeStudentsFromCourse", {
+  fetch("https://protected-reef-78007.herokuapp.com/removeStudentsFromCourse", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ courseCode: courseCode, email: email, haveToBlock:haveToBlock }),

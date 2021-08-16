@@ -17,7 +17,7 @@ const [ showSubmitButton, setShowSubmitButton] = useState(false);
 let [ pdf, setPDF] = useState({});
 
 useEffect(()=>{
-  fetch('http://localhost:4000/getPDFDemo', {
+  fetch('https://protected-reef-78007.herokuapp.com/getPDFDemo', {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
   })
@@ -83,7 +83,7 @@ const handleAnswerSubmit = (e) => {
     const formData = new FormData();
           formData.append("file", answerScript);
 
-          fetch("http://localhost:4000/storePDFDemo", {
+          fetch("https://protected-reef-78007.herokuapp.com/storePDFDemo", {
             method: "POST",
             body: formData,
           })

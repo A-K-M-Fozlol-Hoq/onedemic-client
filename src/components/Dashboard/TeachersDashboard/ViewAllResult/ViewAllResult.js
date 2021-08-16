@@ -37,7 +37,7 @@ const ViewAllResult = () => {
     useEffect(()=>{
         const formData = new FormData();
         formData.append("courseCode", courseCode);
-                fetch("http://localhost:4000/getResults", {
+                fetch("https://protected-reef-78007.herokuapp.com/getResults", {
                   method: "POST",
                   body: formData,
                 })

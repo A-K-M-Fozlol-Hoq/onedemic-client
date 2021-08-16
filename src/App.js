@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NotFound from "components/NotFound/NotFound";
 import Login from "components/Login/Login/Login";
-import Chat from "components/Dashboard/Shared/Chat/Chat/Chat";
-import Join from "components/Dashboard/Shared/Chat/Join/Join";
 import PrivateRoute from "components/Login/PrivateRoute/PrivateRoute";
 import Dashboard from "components/Dashboard/Dashboard/Dashboard";
 import Navbar from "components/Shared/Navbar/Navbar";
@@ -41,12 +39,6 @@ const App = () => {
         <PrivateRoute path="/dashboard">
           <Dashboard></Dashboard>
         </PrivateRoute>
-
-        {/* <Route path="/join" component={Join} />
-
-        <Route path="/chat">
-          <Chat></Chat> 
-        </Route> */}
 
         <Route path="*">
           <NotFound></NotFound>

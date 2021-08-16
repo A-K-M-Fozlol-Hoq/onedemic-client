@@ -143,7 +143,7 @@ const updateUserName = (name) => {
 
 // Store to database ======================================== mongoDB database
 const saveToDatabase = (name, userName, email, role) => {
-  fetch("http://localhost:4000/addUser", {
+  fetch("https://protected-reef-78007.herokuapp.com/addUser", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({

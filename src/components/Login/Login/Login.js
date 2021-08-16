@@ -264,7 +264,7 @@ const Login = () => {
     }
     const handleBlur = (event)=>{
         console.log(event.target.name, event.target.value);
-        fetch("http://localhost:4000/isUserNameExist", {
+        fetch("https://protected-reef-78007.herokuapp.com/isUserNameExist", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ userName: event.target.value }),

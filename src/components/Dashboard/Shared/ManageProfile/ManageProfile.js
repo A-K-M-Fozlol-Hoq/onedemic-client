@@ -64,7 +64,7 @@ const ManageProfile = () => {
     event.preventDefault();
     setIsUserNameAvailable(false);
     setError(" "); 
-    fetch("http://localhost:4000/updateUserName", {
+    fetch("https://protected-reef-78007.herokuapp.com/updateUserName", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ userName: userNameInput, email: email }),
@@ -112,7 +112,7 @@ const ManageProfile = () => {
   const checkAvailability = (userName) => {
     if (error === "") {
       setError("Wait a moment");
-      fetch("http://localhost:4000/isUserNameExist", {
+      fetch("https://protected-reef-78007.herokuapp.com/isUserNameExist", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ userName: userName }),
@@ -160,7 +160,7 @@ const ManageProfile = () => {
         // loggedInUser.profile = profile;
         setLoggedInUser({ profile: profile });
 
-        fetch("http://localhost:4000/updateProfile", {
+        fetch("https://protected-reef-78007.herokuapp.com/updateProfile", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ profile: profile, email: email }),

@@ -32,7 +32,7 @@ const UpcomingExam = () => {
         const formData = new FormData();
           formData.append("courses", JSON.stringify(courses));
 
-          fetch("http://localhost:4000/getExamCollection", {
+          fetch("https://protected-reef-78007.herokuapp.com/getExamCollection", {
             method: "POST",
             body: formData,
           })

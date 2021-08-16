@@ -127,7 +127,7 @@ const CreateExam = () => {
       formData.append("examType", mcqExamData.examType);
       formData.append("questions",JSON.stringify(mcqQuestion) );
 
-      fetch("http://localhost:4000/createMCQExam", {
+      fetch("https://protected-reef-78007.herokuapp.com/createMCQExam", {
         method: "POST",
         body: formData,
       })
@@ -238,7 +238,7 @@ const CreateExam = () => {
           formData.append("examName", writtenExamData.examName);
           formData.append("examType", writtenExamData.examType);
 
-          fetch("http://localhost:4000/createWrittenExam", {
+          fetch("https://protected-reef-78007.herokuapp.com/createWrittenExam", {
             method: "POST",
             body: formData,
           })

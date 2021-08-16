@@ -29,7 +29,7 @@ const MarkSheet = () => {
         // getResults
         formData.append("email", email);
         formData.append("courseCode", courseCode);
-                fetch("http://localhost:4000/getOnesResults", {
+                fetch("https://protected-reef-78007.herokuapp.com/getOnesResults", {
                   method: "POST",
                   body: formData,
                 })

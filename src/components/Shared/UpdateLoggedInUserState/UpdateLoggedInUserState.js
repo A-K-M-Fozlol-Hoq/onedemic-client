@@ -8,7 +8,7 @@ const UpdateLoggedInUserState = () => {
     const email =sessionStorage.getItem('email');
     console.log(email,'UpdateLoggedInUserState')
     useEffect(()=>{
-        fetch('http://localhost:4000/getFullUserByEmail', {
+        fetch('https://protected-reef-78007.herokuapp.com/getFullUserByEmail', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({email:email })

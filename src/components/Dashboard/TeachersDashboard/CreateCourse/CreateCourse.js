@@ -18,7 +18,7 @@ const CreateCourse = () => {
   
   const onBlur = (event) => {
     setError('Checking Courde Code')
-    fetch("http://localhost:4000/isCourseCodeExist", {
+    fetch("https://protected-reef-78007.herokuapp.com/isCourseCodeExist", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ courseCode: newCourseData.courseCode }),
@@ -55,7 +55,7 @@ const CreateCourse = () => {
           formData.append("courseCode", newCourseData.courseCode);
           formData.append("email", email);
 
-          fetch("http://localhost:4000/createCourse", {
+          fetch("https://protected-reef-78007.herokuapp.com/createCourse", {
             method: "POST",
             body: formData,
           })

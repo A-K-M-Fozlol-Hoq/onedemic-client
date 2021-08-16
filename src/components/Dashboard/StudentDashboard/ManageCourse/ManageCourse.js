@@ -16,7 +16,7 @@ const ManageCourse = () => {
     e.preventDefault();
     if (courseCode) {
       setJoiningCourse(true);
-      fetch("http://localhost:4000/joinCourse", {
+      fetch("https://protected-reef-78007.herokuapp.com/joinCourse", {
         method: "POST",
         headers: {
           "content-type": "application/json",
