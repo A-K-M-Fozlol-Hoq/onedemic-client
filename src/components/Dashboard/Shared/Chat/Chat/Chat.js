@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
-import queryString from "query-string";
+import { Link } from "react-router-dom";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./Chat.css";
@@ -8,7 +7,6 @@ import "./Chat.css";
 let socket;
 const Chat = ( props ) => {
 	const { name, room } = props;
-	const { search } = useLocation();
 	const [messages, setMessages] = useState([]);
 	const [users, setUsers] = useState([]);
 
@@ -22,6 +20,7 @@ const Chat = ( props ) => {
 		});
 
 		socket.on("message", (message) => {
+			console.log(messages,'client 24');
 			setMessages((exitstingMsgs) => [...exitstingMsgs, message]);
 		});
 
@@ -34,6 +33,7 @@ const Chat = ( props ) => {
             socket.disconnect()
 			socket.close();
 		};
+		
 	}, []);
 
 	const sendMessage = (e) => {

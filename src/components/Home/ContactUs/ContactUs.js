@@ -8,7 +8,7 @@ const ContactUs = () => {
         <h1>Contact With Us</h1>
         <div className="divider"></div>
         <form action="" className="contact-form">
-        <label className="text-info" htmlFor="name">First Name:</label>
+        <label className="text-info" htmlFor="name">First Name: </label>
         <input type="text" id="name" name="name" placeholder="Your name.."></input>
         <label className="text-info" htmlFor="email">Last Name:</label>
         <input type="email" id="email" name="email" placeholder="Your email.."></input>

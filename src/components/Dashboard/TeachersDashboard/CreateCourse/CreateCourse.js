@@ -80,7 +80,7 @@ const CreateCourse = () => {
   };
   const handleChange = (event) => {
     if (event.target.name === "course-name") {
-      newCourseData.courseName = event.target.value.trim();
+      newCourseData.courseName = event.target.value.trim().toLowerCase();
     } else {
       newCourseData.courseCode = event.target.value.trim();
       setError('')
