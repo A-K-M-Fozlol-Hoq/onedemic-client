@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 // @ts-ignore
-import img1 from "../../../images/onlineExam/img1.jfif";
+import img1 from '../../../images/onlineExam/img1.jfif';
 // @ts-ignore
-import img2 from "../../../images/onlineExam/img2.jfif";
-import img3 from "../../../images/onlineExam/img3.png";
+import img2 from '../../../images/onlineExam/img2.jfif';
+import img3 from '../../../images/onlineExam/img3.png';
 // import img4 from "../../../images/onlineExam/img4.jpg";
-import "./HeaderSlide.css";
+import './HeaderSlide.css';
 
 const Header = () => {
   return (
-    <div>
+    <div className="header-slide-wrapper">
       {/* <img src={img1} alt="" />
       <br></br>
       <img src={img2} alt="" />
@@ -46,10 +46,10 @@ const Header = () => {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="2000">
+          <div className="carousel-inner  ">
+            <div className="carousel-item active " data-bs-interval="2000">
               <img src={img1} className="d-block w-100" alt="..."></img>
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption">
                 <h5 className="slide-header">
                   The Best Quiz Maker for Business and Education
                 </h5>
@@ -61,9 +61,9 @@ const Header = () => {
                 </p>
               </div>
             </div>
-            <div className="carousel-item" data-bs-interval="2000">
+            <div className="carousel-item  " data-bs-interval="2000">
               <img src={img2} className="d-block w-100" alt="..."></img>
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption ">
                 <h5 className="slide-header">Secure Online Onedemic</h5>
                 <p className="slide-text">
                   Onedemic's hosted Online Testing software provides the best
@@ -79,14 +79,14 @@ const Header = () => {
             </div>
             <div className="carousel-item" data-bs-interval="2000">
               <img src={img3} className="d-block w-100" alt="..."></img>
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption ">
                 <h5 className="slide-header">Business and Education plans</h5>
                 <p className="slide-text">
                   We've created affordable Online Testing Plans to suit every
                   organization. From occasional Testing to Enterprise Quiz Maker
-                  requirements, ClassMarker is your Secure and reliable exam maker
-                  and online testing solution. You can also Test 1,000s of Users
-                  simultaneously with Onedemic.
+                  requirements, ClassMarker is your Secure and reliable exam
+                  maker and online testing solution. You can also Test 1,000s of
+                  Users simultaneously with Onedemic.
                 </p>
               </div>
             </div>

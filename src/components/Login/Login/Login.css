@@ -91,10 +91,19 @@
   .login-wraper .login {
     width: 80%;
   }
+  .login-wraper .error-check{
+    margin-top:50px;
+  }
+  
 }
 
 @media only screen and (max-width: 600px) {
   .login-wraper .login {
     width: 90%;
   }
+  .login-wraper .error-check{
+    width:80%;
+    margin-top:50px;
+  }
+  
 }

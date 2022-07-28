@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 .contact-us-wrapper .contact-form {
-  width: 70%;
+  width: 50%;
   margin: auto;
 }
 .contact-us-wrapper .contact-form textarea {
@@ -66,4 +66,18 @@
 .contact-us-wrapper form input[type="email"]:focus,
 .contact-us-wrapper form select:focus {
   box-shadow: 0 0 5px #43d1af;
+}
+@media screen and (max-width: 780px) {
+  .contact-us-wrapper .contact-form {
+    width: 80%;
+    margin: auto;
+  }
+  
+}
+@media screen and (max-width: 480px) {
+  .contact-us-wrapper .contact-form {
+    width: 90%;
+    margin: auto;
+  }
+  
 }

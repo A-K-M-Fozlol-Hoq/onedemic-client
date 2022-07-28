@@ -1,8 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import img from "../../../images/onlineExam/img4.jpg";
-import "./BestOnlineExam.css";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import img from '../../../images/onlineExam/img4.jpg';
+import './BestOnlineExam.css';
 
 const BestOnlineExam = () => {
   return (
@@ -17,7 +16,9 @@ const BestOnlineExam = () => {
             instantly, saving hours of paperwork!
           </p>
           {/* <button className='btn btn-success best-exam-btn'>Register Free</button> */}
-          <Link className='btn btn-success best-exam-btn p-2' to='/login'>Register Free</Link>
+          <Link className="btn btn-success best-exam-btn p-2" to="/login">
+            Register Free
+          </Link>
         </div>
       </div>
       <div className="img-part">
@@ -26,6 +27,5 @@ const BestOnlineExam = () => {
     </div>
   );
 };
-
 
 export default BestOnlineExam;

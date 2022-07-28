@@ -10,6 +10,11 @@
     height:400px;
     margin-top:50px;
 }
+.better-exam img:hover{
+    transform: scale(1.05);
+    border-radius: 20px;
+    cursor: pointer;
+}
 .better-exam-btn{
     width: 45% !important;
     border: 2px solid #fff !important;
@@ -57,3 +62,24 @@
     83% {color: orange; }
     100% {color: red; }
   } */
+
+  @media screen and (max-width: 780px) {
+    .better-exam{
+        display:block;
+    }
+    .better-exam img{
+        display:none;
+    }
+    .better-exam div{
+        width: 100%;
+        text-align: center;
+        margin:0;
+        padding:0;
+    }
+    .better-exam-card{
+        margin: 0;
+        padding: 0;
+        padding-top: 50px !important;
+    }
+    
+  }

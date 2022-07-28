@@ -34,7 +34,7 @@
 
 .img-part img:hover{
     transform: scale(1.05);
-    border-radius: 10%;
+    border-radius: 20px;
     cursor: pointer;
 }
 .best-exam-card:hover{
@@ -65,4 +65,29 @@
   @keyframes img-part {
     0% {left:500px; top:0px;}
     100% {left:0px; top:0px;}
+  }
+
+  @media screen and (max-width: 960px) {
+    .best-online-exam{
+        display: block;
+    }
+    .best-online-exam img{
+        display: none;
+    }
+    .best-online-exam div{
+        width:100%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .best-exam-card h1{
+        font-size: 15px !important;
+        margin: 5px 0 10px;
+    }
+    .best-exam-card p{
+        font-size: 13px !important;
+    }
+    .best-exam-btn{
+        padding:5px !important;
+        font-size: 12px;
+    }
   }

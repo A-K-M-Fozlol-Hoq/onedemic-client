@@ -1,19 +1,22 @@
 .nav-wrapper{
     background-color: #333f50;
-    height:100px;
+    height:70px;
 }
 .nav-wrapper .nav-area{
     width: 80%;
     margin: auto auto;
     display: flex;
-
+}
+.nav-wrapper .logo-area img{
+    width: 250px;
+    margin-top:12.5px;
 }
 .nav-wrapper .nav-area div{
     width: 50%;
 }
 .nav-wrapper .menu-area a{
     width: 100px;
-    margin-top: 35px;
+    margin-top: 18px;
     background-color: #5b9bd5;
     cursor:pointer;
     border-radius: 5px;
@@ -34,3 +37,17 @@
 .nav-wrapper .dashboard-link{
     margin-left: 10px;
 }
+
+@media screen and (max-width: 600px) {
+    .nav-wrapper .nav-area{
+        width: 100%;
+    }
+    .nav-wrapper .nav-area .menu-area{
+        margin-right: 10px;
+    }
+    .nav-wrapper .logo-area img{
+        width: 150px;
+        margin-top:22px;
+        margin-left: 8px;
+    }
+  }
