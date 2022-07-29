@@ -1,0 +1,36 @@
+[debug] [2022-07-29T11:12:22.107Z] ----------------------------------------------------------------------
+[debug] [2022-07-29T11:12:22.109Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-07-29T11:12:22.110Z] CLI Version:   10.2.2
+[debug] [2022-07-29T11:12:22.110Z] Platform:      win32
+[debug] [2022-07-29T11:12:22.111Z] Node Version:  v16.14.0
+[debug] [2022-07-29T11:12:22.117Z] Time:          Fri Jul 29 2022 17:12:22 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-07-29T11:12:22.118Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-29T11:12:22.125Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-07-29T11:12:22.247Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-29T11:12:22.248Z] > authorizing via signed-in user (roberthigdonweb@gmail.com)
+[debug] [2022-07-29T11:12:22.248Z] [iam] checking project onedemic for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-07-29T11:12:22.250Z] > refreshing access token with scopes: []
+[debug] [2022-07-29T11:12:22.251Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-07-29T11:12:22.547Z] <<< HTTP RESPONSE 200 {"date":"Fri, 29 Jul 2022 11:12:26 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-07-29T11:12:22.562Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/onedemic:testIamPermissions [none]
+[debug] [2022-07-29T11:12:22.562Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/onedemic:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-29T11:12:22.991Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-07-29T11:12:22.991Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-07-29T11:12:24.031Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/onedemic:testIamPermissions 200
+[debug] [2022-07-29T11:12:24.033Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/onedemic:testIamPermissions {}
+[debug] [2022-07-29T11:12:24.035Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project onedemic:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-07-29T11:12:24.038Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/onedemic [none]
+[debug] [2022-07-29T11:12:24.593Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/onedemic 403
+[debug] [2022-07-29T11:12:24.594Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/onedemic {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-07-29T11:12:24.594Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-07-29T11:12:24.900Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:47:12)
+    at RetryOperation._fn (C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project onedemic. Please make sure the project exists and your account has permission to access it.
