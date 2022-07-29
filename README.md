@@ -1,13 +1,13 @@
-#Main Features This project:#
--Role based authentication for teacher an student and kept the functionality to update profile and username.
--Teacher can create course, create exam, manage students and view all student’s result (of MCQ exam) &
+#Main Features This project:
+#####Role based authentication for teacher an student and kept the functionality to update profile and username.
+#####Teacher can create course, create exam, manage students and view all student’s result (of MCQ exam) &
 see answer script (PDF- for written examination)
--Student can enroll new course, attend exams and see his/her results.
--Teacher can remove and do block any student from the course.
--During the examination, if time runs out , the submit button will be disabled.
--For communication purpose, we kept chatting functionality for each course.
--Teacher can create MCQ and written exam. For the written exam , teacher uploads pdf questions and students can view it.
--Automatic marking for the MCQ questions. Student can upload pdf answers for written questions.
+#####Student can enroll new course, attend exams and see his/her results.
+#####Teacher can remove and do block any student from the course.
+#####During the examination, if time runs out , the submit button will be disabled.
+#####For communication purpose, we kept chatting functionality for each course.
+#####Teacher can create MCQ and written exam. For the written exam , teacher uploads pdf questions and students can view it.
+#####Automatic marking for the MCQ questions. Student can upload pdf answers for written questions.
 
 Technology used: React JS, React Router, Firebase, Express JS, MongoDB, Bootstrap, MaterialUI, Socket-IO.
 
